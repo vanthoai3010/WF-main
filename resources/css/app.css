@@ -1,0 +1,107 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.sidebar-hidden {
+    @apply transform -translate-x-full transition-transform duration-500 ease-in-out;
+}
+
+.sidebar-visible {
+    @apply transform translate-x-0 transition-transform duration-500 ease-in-out;
+}
+
+@media (max-width: 1024px) {
+    #overlay {
+        width: 100%;
+        left: 0;
+    }
+}
+
+@media screen and (min-width: 300px) and (max-width: 1024px) {
+    #navbar {
+        display: none;
+    }
+    #start {
+        display: none;
+    }
+    #end {
+        display: none;
+    }
+}
+
+#sidebar {
+    z-index: 1001;
+}
+
+.animated-image {
+    width: 100%;
+    max-width: 800px;
+    animation: wave 2s infinite linear alternate;
+    transform-origin: center;
+}
+
+@keyframes wave {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes wave {
+    0% {
+        margin-left: 0;
+    }
+    100% {
+        margin-left: -1600px;
+    }
+}
+@keyframes swell {
+    0%,
+    100% {
+        transform: translate3d(0, -25px, 0);
+    }
+    50% {
+        transform: translate3d(0, 5px, 0);
+    }
+}
+.endWave{
+    display:none;
+}
+
+.fixed-navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    animation: slideDown 0.5s forwards;
+}
+
+@keyframes slideDown {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.modal-open {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.25s linear;
+}
+
+.modal-closed {
+    opacity: 0;
+    visibility: hidden;
+    transition: visibility 0s 0.5s, opacity 0.25s linear;
+}
+
+#modal {
+    z-index: 1000;
+}
